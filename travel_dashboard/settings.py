@@ -27,6 +27,7 @@ SECRET_KEY = Config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = Config('DEBUG')
+# DEBUG=False
 
 ALLOWED_HOSTS = ['*']
 
