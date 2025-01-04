@@ -1,0 +1,15 @@
+# Ignore .env file (contains sensitive data)
+.env
+
+# Ignore compiled files
+*.pyc
+__pycache__/
+
+# Ignore Django migrations folder
+*/migrations/
+
+# Ignore virtual environment folder
+travel_env/
+travelenv/
+# Ignore database files
+db.sqlite3
