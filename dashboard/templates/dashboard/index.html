@@ -1,0 +1,50 @@
+{% extends "dashboard/base.html" %}
+{% block content %}
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <main class="content">
+            <h2 class="welcome-message">
+                <span class="first-line">Plan your journey with</span><br>
+                <span class="second-line">NEXT TRIP.</span>
+            </h2>
+            <form method="POST" action="/" class="form">
+                {% csrf_token %}
+                <input 
+                    type="text" 
+                    name="city_name" 
+                    placeholder="Enter a city name" 
+                    class="input" 
+                    required
+                >
+                <button type="submit" class="button">Get Recommendations</button>
+            </form>
+            
+            <!-- Result Section -->
+            {% if weather %}
+                <div class="results fadeIn">
+                    <h2>Weather in {{ city_name }}</h2>
+                    <p class="weather">Temperature: {{ weather.temperature }}°C, Conditions: {{ weather.conditions }}</p>
+
+                    <h3>Travel Suggestions:</h3>
+                    {% comment %} <h4>{{ recommendations.clothes_description }}</h4> {% endcomment %}
+                    <ul class="recommendations">
+                        {% for item in recommendations.clothes_list %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <h3>Ten Famous Places to Visit:</h3>
+                    <ol class="famous-places">
+                        {% for place in recommendations.famous_places %}
+                            <li>{{ place }}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            {% endif %}
+
+
+        </main>
+    </div>
+
+{% endblock %}
