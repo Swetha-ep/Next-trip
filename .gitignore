@@ -11,5 +11,6 @@ __pycache__/
 # Ignore virtual environment folder
 travel_env/
 travelenv/
+env/
 # Ignore database files
 db.sqlite3
